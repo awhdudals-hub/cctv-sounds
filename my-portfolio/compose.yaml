@@ -1,0 +1,13 @@
+services:
+  jekyll:
+    build: .
+    working_dir: /site
+    volumes:
+      - .:/site
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - "127.0.0.1:4000:4000"
+    command: ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "4000", "--baseurl", "", "--force_polling"]
+
+volumes:
+  bundle_cache:

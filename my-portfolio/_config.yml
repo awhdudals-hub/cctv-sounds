@@ -1,0 +1,28 @@
+title: 작은 관찰
+author: 여울
+tagline: 배우고, 만들고, 나답게 기록합니다.
+description: 궁금한 것을 배우고, 작은 시도를 기록하는 공간입니다.
+
+baseurl: "/my-portfolio"
+url: ""
+
+markdown: kramdown
+theme: null
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - compose.yaml
+  - .dockerignore
+  - vendor
+  - node_modules
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      permalink: /posts/:title/

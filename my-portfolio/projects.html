@@ -1,0 +1,59 @@
+---
+layout: default
+title: 프로젝트
+---
+<section class="section" style="border-top: none;" aria-labelledby="projects-title">
+  <div class="wrap">
+    <h1 class="section-title" id="projects-title">프로젝트</h1>
+    <p class="section-lede">아이디어부터 완료까지, 진행 상태를 있는 그대로 기록합니다.</p>
+
+    {% if site.data.projects.size > 0 %}
+    <div class="card-grid" style="margin-bottom: 2.5rem;">
+      {% for project in site.data.projects %}
+      <div class="card">
+        <span class="status-badge" data-status="{{ project.status }}">{{ project.status }}</span>
+        <h2 class="card-title">{{ project.title }}</h2>
+        <p class="card-meta">{{ project.type }}{% if project.year %} · {{ project.year }}{% endif %}</p>
+        <p class="card-summary">{{ project.summary }}</p>
+        {% if project.skills.size > 0 %}
+        <div class="chip-row">
+          {% for skill in project.skills %}<span class="chip">{{ skill }}</span>{% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2 class="section-title">기록</h2>
+    {% for project in site.data.projects %}
+    <div class="project-detail">
+      <span class="status-badge" data-status="{{ project.status }}">{{ project.status }}</span>
+      <h3 class="card-title" style="margin-top: 0.75rem;">{{ project.title }}</h3>
+      <dl>
+        {% if project.reason %}
+        <dt>시작한 이유</dt>
+        <dd>{{ project.reason }}</dd>
+        {% endif %}
+        {% if project.process %}
+        <dt>과정</dt>
+        <dd>{{ project.process }}</dd>
+        {% endif %}
+        {% if project.learned %}
+        <dt>배운 점</dt>
+        <dd>{{ project.learned }}</dd>
+        {% endif %}
+        {% if project.link %}
+        <dt>링크</dt>
+        <dd><a href="{{ project.link }}">{{ project.link }}</a></dd>
+        {% endif %}
+      </dl>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="empty-state">
+      <p class="empty-lead">등록한 프로젝트 없음</p>
+      <p>작은 시도부터 차근차근 기록합니다.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<article>
+  <header class="post-header">
+    <div class="wrap">
+      <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+      </p>
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      {% if page.categories.size > 0 %}
+      <div class="chip-row" aria-label="카테고리">
+        {% for category in page.categories %}
+        <a class="chip chip-accent" href="{{ '/categories.html' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.tags.size > 0 %}
+      <div class="chip-row" aria-label="태그" style="margin-top: 0.5rem;">
+        {% for tag in page.tags %}
+        <span class="chip">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-body wrap">
+    {% if page.summary %}
+    <p class="hero-lede" style="max-width: none;">{{ page.summary }}</p>
+    {% endif %}
+    {{ content }}
+  </div>
+
+  <nav class="post-nav wrap" aria-label="글 이동">
+    <a href="{{ '/' | relative_url }}">← 홈으로</a>
+    <a href="{{ '/posts.html' | relative_url }}">모든 글 보기</a>
+    <a href="{{ '/categories.html' | relative_url }}">카테고리 보기</a>
+  </nav>
+</article>

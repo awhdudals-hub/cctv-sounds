@@ -1,0 +1,15 @@
+# 프로젝트를 추가하려면 아래 형식으로 목록에 항목을 추가하세요.
+# status는 "아이디어", "진행 중", "완료" 중 실제 상태를 적습니다.
+# year와 link는 실제 정보가 있을 때만 추가하세요. (거짓 정보 금지)
+#
+# - title: 프로젝트 이름
+#   type: 웹 / 디자인 / 글쓰기 등
+#   status: 아이디어
+#   summary: 한두 문장 설명
+#   skills: [사용한 도구나 기술]
+#   reason: 시작한 이유
+#   process: 진행 과정
+#   learned: 배운 점
+#   year: 2026
+#   link: https://example.com
+[]
